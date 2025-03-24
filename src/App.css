@@ -6,8 +6,9 @@ html {
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-  color: #333;
+  background: linear-gradient(135deg, #1A1F2C 0%, #2C3340 100%);
+  color: #fff;
+  overflow-x: hidden;
 }
 
 .App {
@@ -23,7 +24,8 @@ a, button {
 
 /* Improved section padding */
 section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
+  position: relative;
 }
 
 /* Responsive container */
@@ -34,8 +36,75 @@ section {
   padding: 0 1rem;
 }
 
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(90deg, #fff, #a0b4c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass effect utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Image hover effect */
+.hover-scale-image {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-scale-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.custom-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background: linear-gradient(90deg, #f0b400, #f59e0b);
+  color: #111;
+  border: none;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(240, 180, 0, 0.3);
+}
+
+.outline-button {
+  background: transparent;
+  border: 2px solid #f0b400;
+  color: #f0b400;
+}
+
+.outline-button:hover {
+  background: rgba(240, 180, 0, 0.1);
+  transform: translateY(-3px);
+}
+
 @media (max-width: 768px) {
   section {
-    padding: 2rem 1rem;
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 3rem 1rem;
   }
 }

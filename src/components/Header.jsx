@@ -1,11 +1,26 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import './Header.css';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from localStorage
     setIsLoggedIn(false); // Update login state
@@ -30,7 +45,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <motion.header 
-      className="header"
+      className={`header ${scrolled ? 'scrolled' : ''}`}
       initial="hidden"
       animate="visible"
       variants={navVariants}
@@ -40,19 +55,22 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        netraya.
+        <Link to="/">netraya.</Link>
       </motion.div>
       
       <nav>
         <motion.ul className="nav-links" variants={navVariants}>
           <motion.li variants={itemVariants}>
-            <a href="#about">About Us</a>
+            <a href="/#about">About Us</a>
           </motion.li>
           <motion.li variants={itemVariants}>
-            <a href="#services">Our Services</a>
+            <a href="/#services">Our Services</a>
           </motion.li>
           <motion.li variants={itemVariants}>
-            <a href="#articles">Articles</a>
+            <a href="/#articles">Articles</a>
+          </motion.li>
+          <motion.li variants={itemVariants}>
+            <Link to="/contact">Contact</Link>
           </motion.li>
         </motion.ul>
       </nav>
@@ -64,7 +82,9 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           </motion.div>
         )}
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button>Contact Us</Button>
+          <Link to="/contact">
+            <Button>Contact Us</Button>
+          </Link>
         </motion.div>
       </div>
     </motion.header>

@@ -8,10 +8,12 @@ import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Articles from './components/Articles';
 import Footer from './components/Footer';
+import ContactUs from './components/ContactUs';
 import SignUpForm from "./components/User/SignUpForm";
 import SignInForm from "./components/User/SignInForm";
 import ServicesPage from "./components/model/ServicesPage";
 import RegistrationForm from "./components/User/RegistrationForm";
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,6 +37,15 @@ function App() {
                 <AboutUs />
                 <Services isLoggedIn={isLoggedIn} />
                 <Articles />
+                <Footer />
+              </>
+            } />
+
+            {/* Route for Contact Us page */}
+            <Route path="/contact" element={
+              <>
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                <ContactUs />
                 <Footer />
               </>
             } />
