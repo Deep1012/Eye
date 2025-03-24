@@ -1,0 +1,60 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem; /* Reduced padding for a more compact look */
+  background-color: rgba(19, 22, 25, 1);
+  color: #fff; /* White text */
+}
+
+.hero-content {
+  max-width: 45%; /* Adjusted width for smaller size */
+  padding-right: 1rem; /* Space between text and image */
+}
+
+.hero-content h1 {
+  font-size: 2.4rem; /* Slightly reduced font size */
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif; /* Adjust to match your Figma design */
+}
+
+.hero-content p {
+  font-size: 1rem; /* Reduced font size */
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.learn-more-btn {
+  background-color: #fff; /* White button */
+  border: none;
+  border-radius: 30px; /* Rounded button */
+  padding: 0.5rem 1.2rem; /* Reduced padding */
+  color: #111; /* Dark text */
+  cursor: pointer;
+  font-size: 0.9rem; /* Adjusted font size */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.learn-more-btn:hover {
+  background-color: #e0e0e0; /* Slightly darker on hover */
+  transform: scale(1.05);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Aligns the image to the right */
+  max-width: 45%; /* Adjusted size for better fit */
+}
+
+.hero-image img {
+  width: 75%; /* Ensures image fits container */
+  height: 40%; /* Maintains aspect ratio */
+  border-radius: 8px; /* Rounded corners */
+  object-fit: cover; /* Ensures image covers the space evenly */
+}

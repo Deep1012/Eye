@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff; /* White background */
+  color: #111; /* Dark text */
+  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif; /* Adjust as per your design */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Take up remaining space to push contact button to the right */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center; /* Center the links */
+  gap: 2rem; /* Space between nav items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.nav-links li {
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif; /* Ensure consistency */
+}
+
+.nav-links a {
+  color: #111;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0b400; /* Highlight color for hover effect */
+}
+
+.contact-btn {
+  background-color: #111; /* Dark background for button */
+  border: none;
+  border-radius: 30px; /* Rounded button */
+  padding: 0.5rem 1.2rem;
+  margin-left: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif; /* Consistent font */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-btn:hover {
+  background-color: #333; /* Slightly lighter on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+}

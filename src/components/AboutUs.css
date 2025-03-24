@@ -1,0 +1,63 @@
+.about-us {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the content horizontally */
+  padding: 2rem 4rem; /* Adjusted padding for a balanced look */
+  background-color: #fff; /* White background */
+}
+
+.about-us-image {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centers the image */
+}
+
+.about-us-image img {
+  width: 80%; /* Adjust as needed */
+  max-width: 360px; /* Adjust to fit the design */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures the image scales properly */
+}
+
+.about-us-content {
+  flex: 1;
+  padding-left: 2rem; /* Space between image and text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers text vertically */
+}
+
+.about-us-content h2 {
+  font-size: 2.5rem; /* Adjusted size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: black;
+  font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+}
+
+.about-us-content p {
+  font-size: 1.1rem; /* Slightly larger text */
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333; /* Dark text for readability */
+}
+
+.explore-btn {
+  background-color: #fff; /* White button */
+  border: 2px solid #000; /* Black border */
+  border-radius: 30px; /* Rounded button */
+  padding: 0.5rem 1.2rem;
+  color: #000; /* Black text */
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  align-self: flex-start; /* Aligns the button to the left */
+}
+
+.explore-btn:hover {
+  background-color: #f0f0f0; /* Slight background change on hover */
+  transform: scale(1.05);
+}
