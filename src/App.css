@@ -1,9 +1,41 @@
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+  color: #333;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add smooth transitions to all links and buttons */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Improved section padding */
+section {
+  padding: 4rem 2rem;
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
   }
-  
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-  }
-  
+}

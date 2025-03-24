@@ -1,60 +1,125 @@
+
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem; /* Reduced padding for a more compact look */
-  background-color: rgba(19, 22, 25, 1);
-  color: #fff; /* White text */
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(19, 22, 25, 0.95) 0%, rgba(33, 39, 45, 0.95) 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/hero.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .hero-content {
-  max-width: 45%; /* Adjusted width for smaller size */
-  padding-right: 1rem; /* Space between text and image */
+  max-width: 45%;
+  padding-right: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content h1 {
-  font-size: 2.4rem; /* Slightly reduced font size */
+  font-size: 2.8rem;
   line-height: 1.2;
   font-weight: 700;
-  margin-bottom: 1rem;
-  font-family: 'Poppins', sans-serif; /* Adjust to match your Figma design */
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-content p {
-  font-size: 1rem; /* Reduced font size */
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
   font-family: 'Poppins', sans-serif;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .learn-more-btn {
-  background-color: #fff; /* White button */
+  background-color: #fff;
   border: none;
-  border-radius: 30px; /* Rounded button */
-  padding: 0.5rem 1.2rem; /* Reduced padding */
-  color: #111; /* Dark text */
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  color: #111;
   cursor: pointer;
-  font-size: 0.9rem; /* Adjusted font size */
+  font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 .learn-more-btn:hover {
-  background-color: #e0e0e0; /* Slightly darker on hover */
-  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
 .hero-image {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* Aligns the image to the right */
-  max-width: 45%; /* Adjusted size for better fit */
+  justify-content: flex-end;
+  max-width: 45%;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-image img {
-  width: 75%; /* Ensures image fits container */
-  height: 40%; /* Maintains aspect ratio */
-  border-radius: 8px; /* Rounded corners */
-  object-fit: cover; /* Ensures image covers the space evenly */
+  width: 85%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero-content, .hero-image {
+    max-width: 90%;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-image {
+    justify-content: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
 }

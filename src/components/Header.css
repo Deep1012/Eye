@@ -1,29 +1,40 @@
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #fff; /* White background */
-  color: #111; /* Dark text */
-  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+  background-color: rgba(255, 255, 255, 0.8); /* Translucent white background */
+  backdrop-filter: blur(8px); /* Blur effect for better readability */
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+  color: #111;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif; /* Adjust as per your design */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, #111, #444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  flex: 1; /* Take up remaining space to push contact button to the right */
+  flex: 1;
 }
 
 .nav-links {
   display: flex;
-  justify-content: center; /* Center the links */
-  gap: 2rem; /* Space between nav items */
+  justify-content: center;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,33 +43,70 @@ nav {
 
 .nav-links li {
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif; /* Ensure consistency */
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .nav-links a {
   color: #111;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f0b400;
+  transition: width 0.3s;
 }
 
 .nav-links a:hover {
-  color: #f0b400; /* Highlight color for hover effect */
+  color: #f0b400;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .contact-btn {
-  background-color: #111; /* Dark background for button */
+  background-color: #111;
   border: none;
-  border-radius: 30px; /* Rounded button */
+  border-radius: 30px;
   padding: 0.5rem 1.2rem;
   margin-left: 5px;
   color: #fff;
   cursor: pointer;
   font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif; /* Consistent font */
+  font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .contact-btn:hover {
-  background-color: #333; /* Slightly lighter on hover */
-  transform: scale(1.05); /* Subtle zoom effect */
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
 }
