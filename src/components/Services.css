@@ -1,50 +1,62 @@
+
 .services {
-  padding: 3rem 2rem;
-  background-color: rgba(19, 22, 25, 1);
+  background: linear-gradient(135deg, rgba(26, 31, 44, 0.8) 0%, rgba(44, 51, 64, 0.8) 100%);
+  padding: 5rem 2rem;
   color: #fff;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .services h2 {
-  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
   font-weight: 700;
-  margin-bottom: 2rem;
-  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #fff, #f0b400);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .service-cards {
   display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  cursor: pointer;
 }
 
 .service-card {
-  background-color: rgba(19, 22, 25, 1);
-  border-radius: 10px;
-  padding: 2rem;
-  min-width: 280px;
-  max-width: 400px;
-  color: #fff;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  margin-bottom: 1rem; /* Space below the card */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
+.glass-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .service-icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 1rem;
 }
 
@@ -52,47 +64,58 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
 .service-card p {
   font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }
 
 .service-actions {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 2rem; /* Align with card padding */
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .service-btn {
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 20px;
-  padding: 0.5rem 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.3s, transform 0.2s;
+  border: 2px solid #f0b400;
+  color: #f0b400;
+  background: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .service-btn:hover {
-  background-color: #333;
+  background: rgba(240, 180, 0, 0.1);
 }
 
 .sign-up-link {
-  color: #fff;
+  color: #f0b400;
   text-decoration: none;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   transition: color 0.3s;
+  font-size: 0.9rem;
 }
 
 .sign-up-link:hover {
-  color: #aaa;
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1.5rem;
+  }
+  
+  .services h2 {
+    font-size: 2rem;
+  }
+  
+  .service-card-wrapper {
+    min-width: 100%;
+  }
 }

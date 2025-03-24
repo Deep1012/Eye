@@ -3,6 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { 
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink
+} from "./ui/navigation-menu";
+import { cn } from "../lib/utils";
 import './Header.css';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -22,8 +29,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from localStorage
-    setIsLoggedIn(false); // Update login state
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
   };
 
   const navVariants = {
@@ -58,22 +65,59 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         <Link to="/">netraya.</Link>
       </motion.div>
       
-      <nav>
-        <motion.ul className="nav-links" variants={navVariants}>
-          <motion.li variants={itemVariants}>
-            <a href="/#about">About Us</a>
-          </motion.li>
-          <motion.li variants={itemVariants}>
-            <a href="/#services">Our Services</a>
-          </motion.li>
-          <motion.li variants={itemVariants}>
-            <a href="/#articles">Articles</a>
-          </motion.li>
-          <motion.li variants={itemVariants}>
-            <Link to="/contact">Contact</Link>
-          </motion.li>
-        </motion.ul>
-      </nav>
+      <NavigationMenu className="navigation-menu">
+        <NavigationMenuList className="nav-links">
+          <NavigationMenuItem variants={itemVariants}>
+            <NavigationMenuLink asChild>
+              <motion.a 
+                href="/#about" 
+                className="nav-link"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                About Us
+              </motion.a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem variants={itemVariants}>
+            <NavigationMenuLink asChild>
+              <motion.a 
+                href="/#services" 
+                className="nav-link"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                Our Services
+              </motion.a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem variants={itemVariants}>
+            <NavigationMenuLink asChild>
+              <motion.a 
+                href="/#articles" 
+                className="nav-link"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                Articles
+              </motion.a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem variants={itemVariants}>
+            <NavigationMenuLink asChild>
+              <motion.a 
+                href="/contact" 
+                className="nav-link"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                as={Link}
+              >
+                Contact
+              </motion.a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
       
       <div className="auth-buttons">
         {isLoggedIn && (

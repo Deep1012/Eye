@@ -3,6 +3,14 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardFooter, 
+  CardHeader, 
+  CardTitle 
+} from './ui/card';
 import './Services.css';
 import serviceIcon from '/src/assets/serviceIcon.png';
 
@@ -57,36 +65,48 @@ const Services = ({ isLoggedIn }) => {
       <div className="service-cards">
         {/* Left Card */}
         <motion.div
-          className="service-card-wrapper service-card-link"
-          onClick={(e) => handleCardClick(e, "/servicespage")}
           variants={cardVariants}
           whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
+          className="service-card-wrapper"
+          onClick={(e) => handleCardClick(e, "/servicespage")}
         >
-          <div className="service-card">
-            <img src={serviceIcon} alt="Service Icon" className="service-icon" />
-            <h3>AI-Powered Research Analysis for Eye Care</h3>
-            <p>Utilize our AI model to analyze vast datasets, uncovering insights that drive better patient outcomes.</p>
-          </div>
-          <div className="service-actions">
-            <Button variant="outline" className="service-btn">Learn More</Button>
-            {!isLoggedIn && (
-              <Link to="/signup" className="sign-up-link">Sign Up &gt;</Link>
-            )}
-          </div>
+          <Card className="service-card glass-card">
+            <CardHeader>
+              <img src={serviceIcon} alt="Service Icon" className="service-icon" />
+              <CardTitle>AI-Powered Research Analysis for Eye Care</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                Utilize our AI model to analyze vast datasets, uncovering insights that drive better patient outcomes.
+              </CardDescription>
+            </CardContent>
+            <CardFooter className="service-actions">
+              <Button variant="outline" className="service-btn">Learn More</Button>
+              {!isLoggedIn && (
+                <Link to="/signup" className="sign-up-link">Sign Up &gt;</Link>
+              )}
+            </CardFooter>
+          </Card>
         </motion.div>
 
         {/* Right Card */}
         <motion.div
-          className="service-card-wrapper service-card-link"
-          onClick={(e) => handleCardClick(e, "/servicespage")}
           variants={cardVariants}
           whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
+          className="service-card-wrapper"
+          onClick={(e) => handleCardClick(e, "/servicespage")}
         >
-          <div className="service-card">
-            <img src={serviceIcon} alt="Service Icon" className="service-icon" />
-            <h3>Request a Demo to Experience Our Solutions</h3>
-            <p>See how our innovative tool can transform your practice.</p>
-          </div>
+          <Card className="service-card glass-card">
+            <CardHeader>
+              <img src={serviceIcon} alt="Service Icon" className="service-icon" />
+              <CardTitle>Request a Demo to Experience Our Solutions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                See how our innovative tool can transform your practice.
+              </CardDescription>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </motion.section>

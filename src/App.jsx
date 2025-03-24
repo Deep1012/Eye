@@ -13,6 +13,7 @@ import SignUpForm from "./components/User/SignUpForm";
 import SignInForm from "./components/User/SignInForm";
 import ServicesPage from "./components/model/ServicesPage";
 import RegistrationForm from "./components/User/RegistrationForm";
+import { ToastProvider, ToastViewport } from "./components/ui/toast";
 import './App.css';
 
 function App() {
@@ -26,44 +27,47 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <AnimatePresence mode="wait">
-          <Routes>
-            {/* Route for the landing page */}
-            <Route path="/" element={
-              <>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                <Hero />
-                <AboutUs />
-                <Services isLoggedIn={isLoggedIn} />
-                <Articles />
-                <Footer />
-              </>
-            } />
+      <ToastProvider>
+        <div className="App">
+          <AnimatePresence mode="wait">
+            <Routes>
+              {/* Route for the landing page */}
+              <Route path="/" element={
+                <>
+                  <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                  <Hero />
+                  <AboutUs />
+                  <Services isLoggedIn={isLoggedIn} />
+                  <Articles />
+                  <Footer />
+                </>
+              } />
 
-            {/* Route for Contact Us page */}
-            <Route path="/contact" element={
-              <>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                <ContactUs />
-                <Footer />
-              </>
-            } />
+              {/* Route for Contact Us page */}
+              <Route path="/contact" element={
+                <>
+                  <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                  <ContactUs />
+                  <Footer />
+                </>
+              } />
 
-            {/* Route for Sign Up page */}
-            <Route path="/signup" element={<SignUpForm />} />
+              {/* Route for Sign Up page */}
+              <Route path="/signup" element={<SignUpForm />} />
 
-            {/* Route for Sign In page, passing setIsLoggedIn to update login state */}
-            <Route path="/signin" element={<SignInForm setIsLoggedIn={setIsLoggedIn} />} />
+              {/* Route for Sign In page, passing setIsLoggedIn to update login state */}
+              <Route path="/signin" element={<SignInForm setIsLoggedIn={setIsLoggedIn} />} />
 
-            {/* Route for ServicesPage */}
-            <Route path="/servicespage" element={<ServicesPage />} />
+              {/* Route for ServicesPage */}
+              <Route path="/servicespage" element={<ServicesPage />} />
 
-            {/* Route for RegistrationForm, to complete profile for new users */}
-            <Route path="/registrationform" element={<RegistrationForm />} />
-          </Routes>
-        </AnimatePresence>
-      </div>
+              {/* Route for RegistrationForm, to complete profile for new users */}
+              <Route path="/registrationform" element={<RegistrationForm />} />
+            </Routes>
+          </AnimatePresence>
+        </div>
+        <ToastViewport />
+      </ToastProvider>
     </Router>
   );
 }

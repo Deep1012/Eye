@@ -1,5 +1,15 @@
 
 import { motion } from 'framer-motion';
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardFooter, 
+  CardHeader, 
+  CardTitle 
+} from './ui/card';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from './ui/hover-card';
+import { ArrowRight } from 'lucide-react';
 import './Articles.css';
 import article1 from '/src/assets/article1.png'; 
 import article2 from '/src/assets/article2.png';
@@ -41,6 +51,30 @@ const Articles = () => {
     }
   };
 
+  const articles = [
+    {
+      image: article1,
+      tag: "Research",
+      readTime: "5 min read",
+      title: "Understanding AI in Eye Care",
+      description: "How AI is transforming patient management in eye clinics."
+    },
+    {
+      image: article2,
+      tag: "Innovation",
+      readTime: "5 min read",
+      title: "The Future of Eye Health",
+      description: "Exploring advancements in technology for eye health management."
+    },
+    {
+      image: article3,
+      tag: "Trends",
+      readTime: "5 min read",
+      title: "AI and Patient Care",
+      description: "Integrating AI solutions for improved patient outcomes in eye care."
+    }
+  ];
+
   return (
     <motion.section 
       id="articles" 
@@ -55,60 +89,47 @@ const Articles = () => {
         Some research articles focused on the cutting-edge advancements in diabetic retinopathy detection and related fields.
       </motion.p>
       <div className="article-list">
-        <motion.div 
-          className="article"
-          variants={articleVariants}
-          whileHover={{ 
-            y: -10, 
-            boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)",
-            transition: { type: "spring", stiffness: 300 }
-          }}
-        >
-          <img src={article1} alt="Article 1" className="article-image" />
-          <div className="article-tags">
-            <span className="tag">Research</span>
-            <span className="read-time">5 min read</span>
-          </div>
-          <h3>Understanding AI in Eye Care</h3>
-          <p>How AI is transforming patient management in eye clinics.</p>
-          <a href="#" className="read-more-link">Read more &gt;</a>
-        </motion.div>
-        <motion.div 
-          className="article"
-          variants={articleVariants}
-          whileHover={{ 
-            y: -10, 
-            boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)",
-            transition: { type: "spring", stiffness: 300 }
-          }}
-        >
-          <img src={article2} alt="Article 2" className="article-image" />
-          <div className="article-tags">
-            <span className="tag">Innovation</span>
-            <span className="read-time">5 min read</span>
-          </div>
-          <h3>The Future of Eye Health</h3>
-          <p>Exploring advancements in technology for eye health management.</p>
-          <a href="#" className="read-more-link">Read more &gt;</a>
-        </motion.div>
-        <motion.div 
-          className="article"
-          variants={articleVariants}
-          whileHover={{ 
-            y: -10, 
-            boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)",
-            transition: { type: "spring", stiffness: 300 }
-          }}
-        >
-          <img src={article3} alt="Article 3" className="article-image" />
-          <div className="article-tags">
-            <span className="tag">Trends</span>
-            <span className="read-time">5 min read</span>
-          </div>
-          <h3>AI and Patient Care</h3>
-          <p>Integrating AI solutions for improved patient outcomes in eye care.</p>
-          <a href="#" className="read-more-link">Read more &gt;</a>
-        </motion.div>
+        {articles.map((article, index) => (
+          <motion.div 
+            key={index}
+            className="article-wrapper"
+            variants={articleVariants}
+            whileHover={{ 
+              y: -10, 
+              transition: { type: "spring", stiffness: 300 }
+            }}
+          >
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <Card className="article-card glass-card">
+                  <CardHeader className="article-header p-0">
+                    <img src={article.image} alt={article.title} className="article-image" />
+                    <div className="article-tags">
+                      <span className="tag">{article.tag}</span>
+                      <span className="read-time">{article.readTime}</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="article-content">
+                    <CardTitle className="article-title">{article.title}</CardTitle>
+                    <CardDescription className="article-description">
+                      {article.description}
+                    </CardDescription>
+                  </CardContent>
+                  <CardFooter className="article-footer">
+                    <a href="#" className="read-more-link">
+                      Read more <ArrowRight size={14} className="ml-1" />
+                    </a>
+                  </CardFooter>
+                </Card>
+              </HoverCardTrigger>
+              <HoverCardContent className="article-hover-content">
+                <h4>{article.title}</h4>
+                <p>{article.description}</p>
+                <p className="hover-card-tag">Topic: {article.tag}</p>
+              </HoverCardContent>
+            </HoverCard>
+          </motion.div>
+        ))}
       </div>
     </motion.section>
   );
