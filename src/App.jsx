@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
@@ -9,7 +11,7 @@ import Footer from './components/Footer';
 import SignUpForm from "./components/User/SignUpForm";
 import SignInForm from "./components/User/SignInForm";
 import ServicesPage from "./components/model/ServicesPage";
-import RegistrationForm from "./components/User/RegistrationForm"; // Import RegistrationForm component
+import RegistrationForm from "./components/User/RegistrationForm";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,31 +25,33 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          {/* Route for the landing page */}
-          <Route path="/" element={
-            <>
-              <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-              <Hero />
-              <AboutUs />
-              <Services isLoggedIn={isLoggedIn} />
-              <Articles />
-              <Footer />
-            </>
-          } />
+        <AnimatePresence mode="wait">
+          <Routes>
+            {/* Route for the landing page */}
+            <Route path="/" element={
+              <>
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                <Hero />
+                <AboutUs />
+                <Services isLoggedIn={isLoggedIn} />
+                <Articles />
+                <Footer />
+              </>
+            } />
 
-          {/* Route for Sign Up page */}
-          <Route path="/signup" element={<SignUpForm />} />
+            {/* Route for Sign Up page */}
+            <Route path="/signup" element={<SignUpForm />} />
 
-          {/* Route for Sign In page, passing setIsLoggedIn to update login state */}
-          <Route path="/signin" element={<SignInForm setIsLoggedIn={setIsLoggedIn} />} />
+            {/* Route for Sign In page, passing setIsLoggedIn to update login state */}
+            <Route path="/signin" element={<SignInForm setIsLoggedIn={setIsLoggedIn} />} />
 
-          {/* Route for ServicesPage */}
-          <Route path="/servicespage" element={<ServicesPage />} />
+            {/* Route for ServicesPage */}
+            <Route path="/servicespage" element={<ServicesPage />} />
 
-          {/* Route for RegistrationForm, to complete profile for new users */}
-          <Route path="/registrationform" element={<RegistrationForm />} />
-        </Routes>
+            {/* Route for RegistrationForm, to complete profile for new users */}
+            <Route path="/registrationform" element={<RegistrationForm />} />
+          </Routes>
+        </AnimatePresence>
       </div>
     </Router>
   );
